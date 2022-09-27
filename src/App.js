@@ -46,6 +46,10 @@ export default function App() {
       ) : (
         showWeather()
       )}
+      <p>
+        <a href="https://github.com/ladel7/weather-react">Open-source code</a>{" "}
+        by Lucy Adelson
+      </p>
     </div>
   );
 }
