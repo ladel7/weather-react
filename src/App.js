@@ -1,24 +1,24 @@
-import logo from "./logo.svg";
+import React, { useState } from "react";
+import axios from "axios";
 import "./App.css";
 
 function App() {
+  let city = "Paris";
+  let [temp, setTemp] = useState(null);
+  let apiKey = "eec790e544b831eb1307518e7e3d5c07";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showWeather);
+
+  function showWeather(response) {
+    setTemp(response.data.main.temp);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      Testing with github
+      <h2>test</h2>
+      <p>
+        The temperature in {city} is {temp}
+      </p>
     </div>
   );
 }
