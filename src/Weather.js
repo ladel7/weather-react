@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
+import TemperatureUnit from "./TemperatureUnit";
 import "bootstrap/dist/css/bootstrap.css";
 
 export default function Weather() {
@@ -12,7 +13,7 @@ export default function Weather() {
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then((response) => {
       setWeatherInfo({
-        temp: Math.round(response.data.main.temp),
+        temp: response.data.main.temp,
         description: response.data.weather[0].description,
         humidity: response.data.main.humidity,
         wind: Math.round(response.data.wind.speed),
@@ -58,10 +59,10 @@ export default function Weather() {
                 </ul>
               </div>
               <div className="col-md-7">
-                <h2>
+                <span>
                   <img src={weatherInfo.icon} alt={weatherInfo.description} />
-                  {weatherInfo.temp}°C
-                </h2>
+                </span>
+                <TemperatureUnit celsius={weatherInfo.temp} />
               </div>
             </div>
           </div>
