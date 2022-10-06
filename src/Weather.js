@@ -5,6 +5,7 @@ import TemperatureUnit from "./TemperatureUnit";
 import "bootstrap/dist/css/bootstrap.css";
 import Forecast from "./Forecast";
 import WeatherIcons from "./WeatherIcons";
+import FormattedDate from "./FormattedDate";
 
 export default function Weather() {
   const [city, setCity] = useState("New York");
@@ -21,6 +22,7 @@ export default function Weather() {
         wind: Math.round(response.data.wind.speed),
         icon: response.data.weather[0].icon,
         cityName: response.data.name,
+        timezone: response.data.timezone,
       });
     });
   }
@@ -55,6 +57,9 @@ export default function Weather() {
             <div className="row">
               <div className="col-md-5">
                 <ul>
+                  <li>
+                    Date: <FormattedDate timezone={weatherInfo.timezone} />
+                  </li>
                   <li>Description: {weatherInfo.description}</li>
                   <li>Humidity: {weatherInfo.humidity}%</li>
                   <li>Wind: {weatherInfo.wind} km/h</li>
