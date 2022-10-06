@@ -74,7 +74,7 @@ export default function Weather() {
         ) : (
           showWeather()
         )}
-        <Forecast />
+        <Forecast city={city} />
       </div>
     </div>
   );
