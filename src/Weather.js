@@ -10,12 +10,13 @@ import FormattedDate from "./FormattedDate";
 export default function Weather() {
   const [city, setCity] = useState("New York");
   const [weatherInfo, setWeatherInfo] = useState(null);
+  let [loaded, setLoaded] = useState(false);
 
   function showWeather() {
     let apiKey = "eec790e544b831eb1307518e7e3d5c07";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then((response) => {
-      console.log(response);
+      setLoaded(true);
       setWeatherInfo({
         temp: response.data.main.temp,
         description: response.data.weather[0].description,
@@ -39,22 +40,22 @@ export default function Weather() {
     setCity(event.target.value);
   }
 
-  return (
-    <div className="container">
-      <div className="weather">
-        <div className="row">
-          <div className="col-md">
-            <form onSubmit={handleSubmit}>
-              <input
-                type="search"
-                placeholder="Type a city"
-                onChange={updateCity}
-              />
-              <input type="submit" value="search" />
-            </form>
+  if (loaded) {
+    return (
+      <div className="container">
+        <div className="weather">
+          <div className="row">
+            <div className="col-md">
+              <form onSubmit={handleSubmit}>
+                <input
+                  type="search"
+                  placeholder="Type a city"
+                  onChange={updateCity}
+                />
+                <input type="submit" value="search" />
+              </form>
+            </div>
           </div>
-        </div>
-        {weatherInfo ? (
           <div>
             <h1>{weatherInfo.cityName}</h1>
             <div className="row">
@@ -74,11 +75,11 @@ export default function Weather() {
               </div>
             </div>
           </div>
-        ) : (
-          showWeather()
-        )}
-        <Forecast lat={weatherInfo.lat} lon={weatherInfo.lon} />
+          <Forecast latitude={weatherInfo.lat} longitude={weatherInfo.lon} />
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return showWeather();
+  }
 }
