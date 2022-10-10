@@ -1,45 +1,43 @@
 import axios from "axios";
 import React, { useState } from "react";
-import WeatherIcons from "./WeatherIcons";
+import FormatForecast from "./FormatForecast";
 
 export default function Forecast({ latitude, longitude }) {
   let [forecastInfo, setForecastInfo] = useState(null);
   let [loaded, setLoaded] = useState(false);
 
   function handleResponse(response) {
-    console.log(response);
+    // console.log(response);
     setLoaded(true);
     setForecastInfo(response.data.daily);
   }
 
-  // let apiKey = "a33b693cfbefd271b0ed075f9a8f65f0";
-  // let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  function getForecast() {
+    let apiKey = "9e0fb79c2f66d0cd0dcf06710976a873";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
 
-  // axios.get(apiUrl).then((response) => {
-  //   console.log(response);
-  //   setLoaded(true);
-  //   setForecastInfo(response.data.daily);
-  // });
+    axios.get(apiUrl).then(handleResponse);
+  }
 
   if (loaded) {
     return (
       <div className="forecast">
         <div className="row">
-          <div className="col">
-            <div>Mon</div>
-            <WeatherIcons code="02d" />
-            <div>{Math.round(forecastInfo[0].temp.max)}°/ XX°</div>
-          </div>
+          {forecastInfo.map(function (forecastDay, index) {
+            if (index < 4) {
+              return (
+                <div className="col-sm" key={index}>
+                  <div>
+                    <FormatForecast data={forecastDay} />
+                  </div>
+                </div>
+              );
+            }
+          })}
         </div>
-        {setLoaded(false)}
       </div>
     );
   } else {
-    let apiKey = "a33b693cfbefd271b0ed075f9a8f65f0";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-
-    axios.get(apiUrl).then(handleResponse);
-
-    return null;
+    return getForecast();
   }
 }
