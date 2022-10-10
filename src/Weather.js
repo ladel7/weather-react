@@ -15,6 +15,7 @@ export default function Weather() {
     let apiKey = "eec790e544b831eb1307518e7e3d5c07";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then((response) => {
+      // console.log(response);
       setWeatherInfo({
         temp: response.data.main.temp,
         description: response.data.weather[0].description,
@@ -23,6 +24,8 @@ export default function Weather() {
         icon: response.data.weather[0].icon,
         cityName: response.data.name,
         timezone: response.data.timezone,
+        lat: response.data.coord.lat,
+        lon: response.data.coord.lon,
       });
     });
   }
@@ -74,7 +77,7 @@ export default function Weather() {
         ) : (
           showWeather()
         )}
-        <Forecast city={city} />
+        <Forecast lat={weatherInfo.lat} lon={weatherInfo.lon} />
       </div>
     </div>
   );
