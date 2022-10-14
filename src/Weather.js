@@ -54,6 +54,7 @@ export default function Weather() {
                 />
                 <input type="submit" value="search" />
               </form>
+              <button>Current</button>
             </div>
           </div>
           <div>
@@ -62,11 +63,11 @@ export default function Weather() {
               <div className="col-md-5">
                 <ul>
                   <li>
-                    Date: <FormattedDate timezone={weatherInfo.timezone} />
+                    <FormattedDate timezone={weatherInfo.timezone} />
                   </li>
-                  <li>Description: {weatherInfo.description}</li>
                   <li>Humidity: {weatherInfo.humidity}%</li>
                   <li>Wind: {weatherInfo.wind} km/h</li>
+                  <li>Conditions: {weatherInfo.description}</li>
                 </ul>
               </div>
               <div className="col-md-7">
