@@ -1,10 +1,14 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FormatForecast from "./FormatForecast";
 
 export default function Forecast({ latitude, longitude }) {
   let [forecastInfo, setForecastInfo] = useState(null);
   let [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    setLoaded(false);
+  }, [latitude, longitude]);
 
   function handleResponse(response) {
     // console.log(response);
@@ -32,6 +36,8 @@ export default function Forecast({ latitude, longitude }) {
                   </div>
                 </div>
               );
+            } else {
+              return null;
             }
           })}
         </div>
