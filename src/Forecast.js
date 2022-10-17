@@ -11,7 +11,6 @@ export default function Forecast({ latitude, longitude }) {
   }, [latitude, longitude]);
 
   function handleResponse(response) {
-    // console.log(response);
     setLoaded(true);
     setForecastInfo(response.data.daily);
   }

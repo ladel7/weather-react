@@ -2,16 +2,18 @@
   border: none;
   border-radius: 4px;
   padding: 20px;
+  padding-bottom: 0;
   background: #f9d6ee;
   margin: 30px auto;
+  margin-bottom: 0;
   max-width: 650px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .search-bar {
   border: 2px solid #d8a9f2;
   border-radius: 4px;
-  width: 350px;
-  height: 35px;
+  font-family: "Courier New", Courier, monospace;
 }
 .submit-button {
   color: #9f48cb;
@@ -19,6 +21,7 @@
   border: 2px solid #9f48cb;
   border-radius: 4px;
   transition: all 200ms ease-in-out;
+  font-family: "Courier New", Courier, monospace;
 }
 .submit-button:hover {
   cursor: pointer;
@@ -31,4 +34,19 @@ h1 {
 
 ul {
   list-style: none;
+}
+li {
+  font-family: "Courier New", Courier, monospace;
+  line-height: 1;
+}
+
+.date-time {
+  padding-left: 32px;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.weather-details,
+.current-temp {
+  margin: 0 auto;
 }

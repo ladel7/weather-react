@@ -59,20 +59,20 @@ export default function Weather() {
             </div>
           </div>
           <div>
-            <h1 className="mt-4 mb-4">{weatherInfo.cityName}</h1>
+            <h1 className="mt-5 mb-5">{weatherInfo.cityName}</h1>
             <div className="row">
-              <div className="col-md-6">
+              <div className="col-md-6 weather-details">
+                <div className="date-time">
+                  <FormattedDate timezone={weatherInfo.timezone} />
+                </div>
                 <ul>
-                  <li>
-                    <FormattedDate timezone={weatherInfo.timezone} />
-                  </li>
                   <li>Humidity: {weatherInfo.humidity}%</li>
                   <li>Wind: {weatherInfo.wind} km/h</li>
                   <li>Conditions: {weatherInfo.description}</li>
                 </ul>
               </div>
-              <div className="col-md-6">
-                <WeatherIcons code={weatherInfo.icon} size={72} />
+              <div className="col-md-6 current-temp">
+                <WeatherIcons code={weatherInfo.icon} size={60} />
                 <TemperatureUnit celsius={weatherInfo.temp} />
               </div>
             </div>
