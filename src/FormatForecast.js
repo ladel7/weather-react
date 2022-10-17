@@ -1,5 +1,6 @@
 import React from "react";
 import WeatherIcons from "./WeatherIcons";
+import "./FormatForecast.css";
 
 export default function FormatForecast({ data }) {
   function formatDays() {
@@ -16,12 +17,12 @@ export default function FormatForecast({ data }) {
   }
 
   return (
-    <div className="FormatForecast">
-      <div>{formatDays()}</div>
-      <div>
-        <WeatherIcons code={data.weather[0].icon} />
+    <div className="FormatForecast mt-5">
+      <div className="day-of-week">{formatDays()}</div>
+      <div className="weather-icons">
+        <WeatherIcons code={data.weather[0].icon} size={54} />
       </div>
-      <div>
+      <div className="max-min-temp">
         {maxTemp()}°/{minTemp()}°
       </div>
     </div>

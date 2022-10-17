@@ -7,6 +7,24 @@
   max-width: 650px;
 }
 
+.search-bar {
+  border: 2px solid #d8a9f2;
+  border-radius: 4px;
+  width: 350px;
+  height: 35px;
+}
+.submit-button {
+  color: #9f48cb;
+  background: #d7a3ea;
+  border: 2px solid #9f48cb;
+  border-radius: 4px;
+  transition: all 200ms ease-in-out;
+}
+.submit-button:hover {
+  cursor: pointer;
+  opacity: 80%;
+}
+
 h1 {
   text-align: center;
 }

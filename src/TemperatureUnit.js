@@ -22,7 +22,8 @@ export default function TemperatureUnit({ celsius }) {
       <span className="temperatureUnit">
         <span className="temperature">{Math.round(celsius)}</span>
         <span className="unit-wrapper">
-          <span className="unit">°C</span> |{" "}
+          <span className="unit">°C</span>{" "}
+          <span className="unit-separator">|</span>{" "}
           <span className="unit">
             <a href="/" onClick={toFahrenheit} className="unit-link">
               °F
@@ -41,7 +42,8 @@ export default function TemperatureUnit({ celsius }) {
               °C
             </a>
           </span>{" "}
-          | <span className="unit">°F</span>
+          <span className="unit-separator">|</span>{" "}
+          <span className="unit">°F</span>
         </span>
       </span>
     );

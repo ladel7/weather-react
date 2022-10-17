@@ -1,17 +1,19 @@
 .temperature {
-  font-size: 42px;
+  font-size: 82px;
   font-weight: 600;
+  position: relative;
+  top: -10px;
 }
 
 .unit {
-  font-size: 16px;
+  font-size: 24px;
   color: black;
   font-weight: 600;
 }
 
 .unit-wrapper {
   position: relative;
-  top: -20px;
+  top: -50px;
 }
 
 .unit-link {
@@ -20,4 +22,7 @@
 }
 .unit-link:hover {
   color: black;
+}
+.unit-separator {
+  font-size: 24px;
 }
