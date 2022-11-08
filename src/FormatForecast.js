@@ -18,12 +18,14 @@ export default function FormatForecast({ data }) {
 
   return (
     <div className="FormatForecast mt-5">
-      <div className="day-of-week">{formatDays()}</div>
-      <div className="weather-icons mt-3">
-        <WeatherIcons code={data.weather[0].icon} size={54} />
-      </div>
-      <div className="max-min-temp mt-3 mb-3">
-        {maxTemp()}°/{minTemp()}°
+      <div className="forecast-icon-temp">
+        <div className="day-of-week">{formatDays()}</div>
+        <div className="weather-icons mt-3">
+          <WeatherIcons code={data.weather[0].icon} size={52} />
+        </div>
+        <div className="max-min-temp mt-3">
+          {maxTemp()}°/{minTemp()}°
+        </div>
       </div>
     </div>
   );

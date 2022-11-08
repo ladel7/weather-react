@@ -55,13 +55,14 @@ export default function Weather() {
                 />
                 <input type="submit" value="search" className="submit-button" />
               </form>
-              {/* <button>Current</button> */}
             </div>
           </div>
           <div>
-            <h1 className="mt-5 mb-5">{weatherInfo.cityName}</h1>
+            <h1 className="mt-5 mb-5 font-weight-bold">
+              {weatherInfo.cityName}
+            </h1>
             <div className="row">
-              <div className="col-md-6 weather-details">
+              <div className="col-sm-6 weather-details">
                 <div className="date-time">
                   <FormattedDate timezone={weatherInfo.timezone} />
                 </div>
@@ -71,8 +72,8 @@ export default function Weather() {
                   <li>Conditions: {weatherInfo.description}</li>
                 </ul>
               </div>
-              <div className="col-md-6 current-temp">
-                <WeatherIcons code={weatherInfo.icon} size={60} />
+              <div className="col-sm-6 current-temp">
+                <WeatherIcons code={weatherInfo.icon} size={58} />
                 <TemperatureUnit celsius={weatherInfo.temp} />
               </div>
             </div>

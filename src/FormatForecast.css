@@ -2,4 +2,13 @@
 .weather-icons,
 .max-min-temp {
   text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 600;
+}
+
+.forecast-icon-temp {
+  border: 1.5px solid #d7a3ea;
+  border-radius: 45px;
+  margin-bottom: 20px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }

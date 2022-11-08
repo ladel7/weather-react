@@ -7,12 +7,17 @@ export default function App() {
   return (
     <div className="app">
       <Weather />
-      <small>
-        <a href="https://github.com/ladel7/weather-react" className="git-link">
-          Open-source code
-        </a>{" "}
-        by Lucy Adelson
-      </small>
+      <div className="container">
+        <small>
+          <a
+            href="https://github.com/ladel7/weather-react"
+            className="git-link"
+          >
+            Open-source code
+          </a>{" "}
+          by Lucy Adelson
+        </small>
+      </div>
     </div>
   );
 }
