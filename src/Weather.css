@@ -51,3 +51,7 @@ li {
 .current-temp {
   margin: 0 auto;
 }
+
+.current-temp {
+  text-align: center;
+}

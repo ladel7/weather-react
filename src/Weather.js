@@ -14,7 +14,7 @@ export default function Weather() {
 
   function showWeather() {
     let apiKey = "eec790e544b831eb1307518e7e3d5c07";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
     axios.get(apiUrl).then((response) => {
       setLoaded(true);
       setWeatherInfo({
@@ -68,13 +68,13 @@ export default function Weather() {
                 </div>
                 <ul>
                   <li>Humidity: {weatherInfo.humidity}%</li>
-                  <li>Wind: {weatherInfo.wind} km/h</li>
+                  <li>Wind: {weatherInfo.wind} mph</li>
                   <li>Conditions: {weatherInfo.description}</li>
                 </ul>
               </div>
               <div className="col-sm-6 current-temp">
                 <WeatherIcons code={weatherInfo.icon} size={58} />
-                <TemperatureUnit celsius={weatherInfo.temp} />
+                <TemperatureUnit fahrenheit={weatherInfo.temp} />
               </div>
             </div>
           </div>
